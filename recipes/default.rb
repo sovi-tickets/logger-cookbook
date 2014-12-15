@@ -25,13 +25,6 @@ htpasswd "#{node['nginx']['dir']}/htpassword" do
   password data_bag_item('kibana', 'credentials')['password']
 end
 
-unless Chef::Config[:solo]
-  es_server_results = search(:node, "roles:#{node['kibana']['es_role']} AND chef_environment:#{node.chef_environment}")
-  unless es_server_results.empty?
-    node.set['kibana']['es_server'] = es_server_results[0]['ipaddress']
-  end
-end
-
 if node['kibana']['user'].empty?
   if !node['kibana']['webserver'].empty?
     webserver = node['kibana']['webserver']
