@@ -55,6 +55,20 @@ You will want to change the template files, making the input type and port work
 for you, the default is tcp but we have since moved to udp so I would go ahead
 and change those files.
 
+### Customizing the cookbook
+
+Everything in this cookbook is driven by the attributes, whether it's the version of logstash/kibana/elasticsearch or anything else you would want to change (except templates).
+
+For example, if you want to change the disk size/raid levels etc:
+
+```ruby
+default['logger']['disk_count']  = 5
+default['logger']['disk_size']   = 1025
+default['logger']['raid_level']  = 10
+default['logger']['disk_piops']  = 3000
+default['logger']['mount_point'] = '/mnt'
+```
+
 
 ## Licence:
 
