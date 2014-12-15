@@ -13,6 +13,11 @@ In order to understand better what/why/how it's done, read the blog post about i
 
 This Cookbook was only tested on AWS, if you intend to use it elsewhere it will likely need some adjustments and modifications.
 
+This cookbook assumes:
+
+1. You are working with a chef server or have data bags support
+2. You want a bigger than 1TB disk for your instance in some sort of raid level with some piops.
+
 If you want to work with the cookbook AS-IS without making any changes, you will need some data-bags set up.
 The cookbook gets some data like credentials from data-bags.
 
